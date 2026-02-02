@@ -1,0 +1,12 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+
+/* Font family variables */
+:root {
+  --font-sf-pro: "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-instrument-serif: "Instrument Serif", serif;
+  --font-satoshi: "Satoshi", sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}

@@ -1,0 +1,264 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+/* ===============================
+   ROOT TOKENS (CANONICAL NAMES)
+   =============================== */
+:root {
+  --font-size: 16px;
+
+  /* Typography scale */
+  --text-60px: 60px;
+  --text-48px: 48px;
+  --text-36px: 36px;
+  --text-32px: 32px;
+  --text-18px: 18px;
+  --text-14px: 14px;
+
+  /* Fonts */
+  --font-sf-pro: "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-instrument-serif: "Instrument Serif", serif;
+  --font-satoshi: "Satoshi", sans-serif;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Radius */
+  --radius: 17px;
+  --radius-button: 30px;
+  --radius-card: 17px;
+  --radius-large: 40px;
+
+  /* Motion */
+  --blur-xs: 4px;
+  --blur-sm: 8px;
+  --blur-md: 12px;
+  --blur-lg: 16px;
+
+  /* ===============================
+     PCW PROPS – DESERT LIQUID GLASS ALIASES
+     (ADDITIVE — DOES NOT BREAK LIBRARY)
+     =============================== */
+  --pcw-navy-deep: #0B1020;
+  --pcw-navy-mid: #162447;
+  --pcw-navy-royal: #1F3C88;
+  --pcw-gold-soft: #F2D675;
+  --pcw-gold-antique: #B9A14A;
+  --pcw-white: #FFFFFF;
+
+  --pcw-glass-primary: rgba(22, 36, 71, 0.7);
+  --pcw-glass-secondary: rgba(31, 60, 136, 0.6);
+  --pcw-glass-tertiary: rgba(22, 36, 71, 0.4);
+
+  /* Semantic defaults */
+  --card: var(--surface-primary);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface-secondary);
+  --popover-foreground: var(--foreground);
+  --input: var(--surface-tertiary);
+  --input-background: var(--surface-tertiary);
+  --destructive: rgba(244, 67, 54, 1);
+  --destructive-foreground: var(--pcw-white);
+}
+
+/* ===============================
+   DARK MODE (CANONICAL)
+   =============================== */
+:root,
+.dark {
+  --background: var(--pcw-navy-deep);
+  --foreground: var(--pcw-white);
+
+  --surface-primary: var(--pcw-glass-primary);
+  --surface-secondary: var(--pcw-glass-secondary);
+  --surface-tertiary: var(--pcw-glass-tertiary);
+
+  --primary: var(--pcw-gold-soft);
+  --primary-foreground: var(--pcw-navy-deep);
+
+  --secondary: var(--pcw-navy-royal);
+  --secondary-foreground: var(--pcw-white);
+
+  --accent: var(--pcw-gold-antique);
+  --accent-foreground: var(--pcw-navy-deep);
+
+  --muted: rgba(255, 255, 255, 0.08);
+  --muted-foreground: rgba(255, 255, 255, 0.6);
+
+  --border: rgba(255, 255, 255, 0.1);
+  --ring: var(--pcw-gold-soft);
+
+  --elevation-sm: 0px 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow-elevation: 0 12px 48px rgba(0, 0, 0, 0.45);
+
+  /* Charts */
+  --chart-1: var(--pcw-gold-soft);
+  --chart-2: var(--pcw-gold-antique);
+  --chart-3: var(--pcw-navy-royal);
+  --chart-4: var(--pcw-navy-mid);
+  --chart-5: rgba(255, 255, 255, 0.4);
+
+  /* Sidebar */
+  --sidebar: rgba(11, 16, 32, 0.85);
+  --sidebar-foreground: var(--pcw-white);
+  --sidebar-primary: var(--pcw-gold-soft);
+  --sidebar-primary-foreground: var(--pcw-navy-deep);
+  --sidebar-accent: var(--pcw-gold-antique);
+  --sidebar-accent-foreground: var(--pcw-navy-deep);
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: var(--pcw-gold-soft);
+}
+
+/* ===============================
+   LIGHT MODE (STRUCTURAL PAIR)
+   =============================== */
+.light {
+  --background: #FFFFFF;
+  --foreground: #0A0A0A;
+
+  --surface-primary: rgba(245, 245, 245, 0.9);
+  --surface-secondary: rgba(238, 238, 238, 0.8);
+  --surface-tertiary: rgba(245, 245, 245, 0.5);
+
+  --primary: #1F3C88;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #2E5FA0;
+  --secondary-foreground: #FFFFFF;
+
+  --accent: #8B7A1F;
+  --accent-foreground: #FFFFFF;
+
+  --muted: rgba(10, 10, 10, 0.06);
+  --muted-foreground: rgba(10, 10, 10, 0.6);
+
+  --border: rgba(10, 10, 10, 0.1);
+  --ring: #1F3C88;
+
+  --shadow-elevation: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* ===============================
+   GLASS UTILITIES
+   =============================== */
+.glass-primary {
+  background: var(--surface-primary);
+  backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-elevation);
+  border-radius: var(--radius-card);
+}
+
+.glass-secondary {
+  background: var(--surface-secondary);
+  backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-elevation);
+  border-radius: var(--radius-card);
+}
+
+.glass-tertiary {
+  background: var(--surface-tertiary);
+  backdrop-filter: blur(var(--blur-xs));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.glass-active {
+  background: var(--surface-primary);
+  backdrop-filter: blur(var(--blur-lg));
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-card);
+}
+
+/* ===============================
+   BASE THEME MAPPING
+   =============================== */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-button: var(--radius-button);
+  --radius-card: var(--radius-card);
+  --radius-large: var(--radius-large);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --shadow-elevation-sm: var(--elevation-sm);
+}
+
+/* ===============================
+   BASE ELEMENT STYLES
+   =============================== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-satoshi);
+  }
+
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1, h2, h3 {
+      font-family: var(--font-sf-pro);
+      font-weight: var(--font-weight-bold);
+    }
+
+    h4 {
+      font-family: var(--font-instrument-serif);
+      font-weight: var(--font-weight-regular);
+    }
+
+    p,
+    span,
+    label,
+    input,
+    button {
+      font-family: var(--font-satoshi);
+      font-size: var(--text-18px);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
